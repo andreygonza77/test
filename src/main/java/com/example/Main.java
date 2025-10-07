@@ -15,10 +15,19 @@ public class Main {
         BufferedReader in = new BufferedReader(new InputStreamReader(mioSocket.getInputStream()));
         PrintWriter out = new PrintWriter(mioSocket.getOutputStream(), true);
 
+        boolean check = true;
         out.println("Welcome: v1.2");
-        String s = in.readLine();
-        String stringaTrasformata = s.toUpperCase();
-        out.println(stringaTrasformata);
+        do{
+            String s = in.readLine();
+            if(!(s.equals("close"))){
+                String stringaTrasformata = s.toUpperCase();
+                out.println("La stringa trasformata: " + stringaTrasformata);
+            }
+            else check = false;
+        }
+        while(check);
+                                                                      
+        out.println("Connessione terminata");
         ss.close();
     }
 }
