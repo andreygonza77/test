@@ -13,12 +13,12 @@ public class Main {
         ServerSocket ss = new ServerSocket(3000);
         Socket mioSocket = ss.accept();
         BufferedReader in = new BufferedReader(new InputStreamReader(mioSocket.getInputStream()));
-        PrintWriter out = new PrintWriter(mioSocket.getOutputStream());
+        PrintWriter out = new PrintWriter(mioSocket.getOutputStream(), true);
 
-        out.println("ciao");
+        out.println("Welcome: v1.2");
         String s = in.readLine();
-        System.out.println("la stringa ricevuta e' " + s);
-        System.out.println("Qualcuno si e' collegato");
+        String stringaTrasformata = s.toUpperCase();
+        out.println(stringaTrasformata);
         ss.close();
     }
 }
